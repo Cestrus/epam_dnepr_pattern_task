@@ -1,0 +1,243 @@
+// B L O G
+
+.blog-head{
+  position: relative;
+  background-color: $mainBackgroundColor;
+}
+
+// T I T L E   B L O G
+
+.row--blog-title, .row--blog-search{
+  @include rowNormalize;
+}
+
+.row {  
+
+  &--blog-title {
+    justify-content: center;
+    height: 135px;
+  }
+  &--blog-search {
+    height: 105px;
+    justify-content: flex-end;
+    margin-top: -16px;
+  }
+  &--blog-top {
+    @include rowNormalize;
+    position: relative;
+    height: 379px;
+    margin-bottom: 50px;
+    background-color: $postBackgroundColor; 
+    border-radius: 5px;
+  }
+}
+
+.column-title--blog {
+   @include renderTitle($titleUnderlineBlog);
+   
+}
+
+// S E A R C H
+
+.column-blog-search {
+  @include make-col(4, 12);
+  display: flex;
+  align-items: center;
+  
+}
+
+.search {
+  width: 320px;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid $searchColor;
+    
+  &--blog {
+    margin-right: 0;
+    margin-left: auto;    
+    font-size: 15px;
+    line-height: 25px;
+    color: $searchColor;
+    padding-left: 10px;
+  }
+}
+
+.after-search{
+  position: relative;
+
+  &::before{
+    content: '';
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: -35px;
+    width: 20px;
+    height: 20px;
+    @include backgroundImg('../img/icons/a-icon-search-1.svg')
+  }
+}
+
+// B L O G   T O P
+
+.column-blog{
+  @include make-col(12, 12);
+}
+
+.column-blog-half {
+  @include make-col(6, 12);
+  
+  &--left{
+    padding-right: 20px;
+    margin-right: -8px;
+  }
+}
+
+.blog-top__img-video{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  //display: flex;
+  margin: auto;
+  z-index: 5;
+    img{
+      width: 100%;
+    }
+  //&--first{
+  //  @include backgroundImg('../img/Image post 1.png');
+  //}
+  //&--second{
+  //  @include backgroundImg('../img/Image post 2.png');
+  //}
+  //&--third{
+  //  @include backgroundImg('../img/Image post 3.png');
+  //}
+}
+
+.blog-top{
+  
+  &__post{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    //height: 100%;
+    margin-left: -12px;
+    
+    &--half:hover{
+      box-shadow: -60px 5px 10px 0px $formShadow;
+    }
+  }
+  &__post-title{
+    height: 80px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 500;
+    padding-left: 40px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 15px;
+  }
+  &__post-description{
+    height: 100px;
+    width: 84.5%;
+    padding-left: 40px;
+
+    audio{
+      width: 214px;
+      height: 37px;
+      margin-bottom: 8px;
+    }
+    &--full{
+      width: 92%;
+      margin-left: 0;
+    }
+  }
+  &__button{
+    height: 120px;
+    padding-left: 40px;
+    display: flex;
+  }
+  &__angle-sign{
+    position: absolute;
+    width: 7%;
+    height: 19%;
+    background-color: $postBackgroundColor;
+    top: 0;
+    right: 0;
+    border-radius: 0 5px 0 10px;
+    border-left: 3px solid $mainBackgroundColor;
+    border-bottom: 3px solid $mainBackgroundColor;
+
+    &--video{
+      @include backgroundImg('../img/icons/a-icon-playmini.svg');
+      background-size: 50%;
+    }
+    &--melody{
+      @include backgroundImg('../img/icons/a-icon-melody.svg');
+      background-size: 50%;
+    }
+    &--picture{
+      @include backgroundImg('../img/icons/a-icon-picture.svg');
+      background-size: 50%;
+    }
+    &--text{
+      @include backgroundImg('../img/icons/a-icon-text.svg');
+      background-size: 50%;
+    }
+  }
+}
+
+.author-info{
+  width: 100%;
+  &--blog-top{ 
+    padding-left: 40px;
+    padding-top: 27px;
+  }
+  &--post{
+    align-self: center;
+  }
+
+  img{
+    width: 52px;    
+    float: left;
+  }
+  &__name{    
+    line-height: 28px;
+    font-weight: 600;
+    padding-left: 65px;
+  }
+  &__statistic{
+    padding-left: 15px;
+    letter-spacing: 0.1px;
+  }
+}
+
+.author-info{
+  &__blog-top{
+    
+    &__name{
+      padding-left: 67px;
+    }
+  }
+  &__star-line{
+    padding-left: 7px;
+  }
+}
+
+.row--blog-btn{
+  height: 135px;
+  margin: auto;
+  justify-content: center;
+}
+
+.btn{
+  &--blog-top-light{
+    align-self: center;
+    margin-bottom: 5px;
+    @include renderButton(121px, 45px, $buttonLightColor, $buttonBorderColor, $buttonDarkFontColor);
+  }
+  &--blog-top-dark{
+    margin-top: 10px;
+    @include renderButton(121px, 45px, $buttonDarkColor, $buttonBorderColor, $buttonLightFontColor);  
+  }
+}
+

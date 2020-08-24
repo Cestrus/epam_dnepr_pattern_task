@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>	
+</head>
+<body>
+	<div class="page">
+		<!-- H E A D E R -->
+		<header class="header">
+			<a name="Home"></a>
+			<div class="container">
+				<div class="row row--header">
+					<div class="column-header-left">
+						<p class="header__logo logo">BlogWorld</p>
+					</div>
+					<div class="column-header-right">
+						<nav class="header__menu menu ">
+							<a href="#Home" class="menu__link menu__link--home menu__link--active">Home</a>
+							<a href="#Portfolio" class="menu__link menu__link--portfolio">Portfolio</a>
+							<a href="#Blog" class="menu__link menu__link--blog">Blog</a>
+							<a href="#Pages" class="menu__link menu__link--pages">Pages</a>
+							<a href="#About" class="menu__link menu__link--about">About</a>
+							<a href="#Contact" class="menu__link menu__link--contact">Contact</a>
+						</nav>
+					</div>
+				</div>
+			</div>
+        </header>
+		<!-- M A I N -->
+		<div class="container">
+			<div class="row row--author-list"></div>
+			<div class="row row--post-list"></div>
+			<div class="row row--post">
+				<div class="column-post-main">
+					<main class="post-text"></main>
+				</div>
+				<div class="column-post-aside">
+					<aside class="author-list--aside"></aside>
+				</div>
+			</div>			
+		</div>		
+		<!-- F O O T E R -->
+		<footer class="footer">
+			<div class="container">
+				<div class="row row--footer">
+					<div class="column-footer">
+						<div class="social-block social-block--footer">
+							<a href="#"><img class="social-icon social-icon--fb" src="./img/icons/a-icon-facebook.svg"/></a>
+							<a href="#"><img class="social-icon social-icon--instagram" src="./img/icons/a-icon-instagram.svg"/></a>
+							<a href="#"><img class="social-icon social-icon--dribbble" src="./img/icons/a-icon-dribbble.svg"/></a>
+						</div>
+					</div>
+					<div class="column-footer">
+						<p class="logo">BlogWorld</p>
+					</div>
+					<div class="column-footer">
+						<p class="copyright">©2019 All Rights Reserved.</p>
+					</div>
+				</div>
+			</div>
+		</footer>		
+	</div>
+
+	<script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+@mixin backgroundImg($url) {
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@mixin rowNormalize{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+@mixin renderPseudoTitle{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 3px;
+    height: 8px;
+    left: -3px;
+    border: 1px solid $mainColor;
+    border-bottom: 1px solid $mainBackgroundColor;
+    box-sizing: border-box;
+}
+
+@mixin renderTitle($width){
+    .my-title{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        font-family: $baseFontFamily;
+        color: $fontColor;
+        justify-content: center;
+        align-items: center;
+        
+        &__name{
+            font-size: $titleFontSize;
+            line-height: $titleLineHeight;
+            font-weight: 600;
+        }
+
+        &__line-wrapper{
+            position: relative;
+            height: 8px;
+            width: $width;
+        }
+
+        &__underline{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-bottom: 1px solid $mainColor;
+            box-sizing: border-box;
+            top: 5px;
+        }
+          
+        &__underline::before{
+            @include renderPseudoTitle;
+            border-left: none;
+        }
+          
+        &__underline::after{
+            @include renderPseudoTitle;
+            border-right: none;
+            left: $width;
+        }
+
+        &__descriptor-wrapper{
+            position: relative;
+            width: 100%;
+            top: 20px;
+            padding: 0 20px;
+        }
+          
+        &__description{
+            text-align: center;
+            
+        }
+    }
+}
+
+@mixin renderPseudoCard($color){
+    content: '';
+    display: block;
+    position: absolute;
+    width: 13%;
+    height: 20%;
+    top: 0; 
+    background-color: $color;
+}
+
+@mixin renderCard($icon, $color){
+    .my-card{           
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        &__bg{
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: flex;
+            align-items: flex-end;
+        }
+        &__main{
+            width: 87%;
+            height: 100%;
+            background-color: $color;
+            border-radius: 5px 5px 0 5px;
+        }
+        &__aside{
+            width: 13%;
+            height: 80%;
+            background-color: $color;
+            border-radius: 0 5px 5px 0;
+        }
+        &__aside::before{
+            @include renderPseudoCard($color);
+        }
+        &__aside::after{
+            @include renderPseudoCard($color);
+            background-color:#fff;
+            border-radius: 0 0 0 5px;;
+        }
+        &__icon{
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            top: calc(43% - 33px);
+            left: calc(50% - 33px);
+            @include backgroundImg($icon);
+        }
+        &__name{
+            position: absolute;
+            width: 100%;
+            top: calc(50% + 33px + 5px);
+            text-align: center;
+        }
+        &--left{
+            .my-card{
+                &__bg{
+                    transform: scaleX(-1);
+                }
+            }
+        }
+    }
+}
+
+@mixin renderButton($width, $height, $buttonColor, $borderColor, $fontColor){
+    @if $width == null {
+        width: auto;
+    } @else {
+        width: $width;
+    } 
+    background-color: $buttonColor;
+    border-color: $borderColor;
+    color: $fontColor;    
+    height: $height;    
+    &:hover{
+      background-color: $buttonHoverColor;
+      color: $buttonLightFontColor;
+    }
+}

@@ -1,0 +1,158 @@
+.page{
+    width: $page-width;
+    margin: auto;
+    position: relative;
+}
+
+.container{
+    font-family: $baseFontFamily;
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    color: $fontColor;
+}
+
+.btn, .btn:active, .btn:focus, .btn:hover,
+input:active, input:hover, input:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.column-title{
+    @include make-col(5, 12);
+}
+
+.toHome{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top:0;
+    left: calc(50vw - 25px);
+    border-radius: 50%;
+    border: 1px solid $buttonDarkColor;
+    z-index: 10;
+    @include backgroundImg('../img/icons/a-icon-arrow.svg');
+    background-color: $upButtonColor;
+    background-size: 50%;
+    transform: rotate(180deg); 
+}
+
+// Statistic 
+
+.statistic{
+    display: flex;
+    font-size: 15px;
+    line-height: 25px;
+    float: left;
+  
+    &__quantity-view{
+      position: relative;
+      margin-left: 23px;
+      font-size: 15px;
+    
+      &::after{
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 14px;
+        height: 13px;
+        @include backgroundImg('../img/icons/a-icon-comment.svg');
+        top: 6px;
+        left: -17px;
+      }
+    }
+  
+    &__point{
+      position: relative;
+      width: 0px;
+      height: 23px;
+      padding: 0 10px;
+  
+      &::after{
+        content: '.';
+        display: block;
+        position: absolute;
+        font-size: 25px;
+        top: -8px;
+        left: 10px;
+        color: $fontColor;
+      }
+    }
+}
+
+// stars
+
+.star-line{
+    display: flex;
+    height: 25px;  
+    align-items: center;
+  
+    &__star{
+        width: 14px;
+        height: 14px;
+        margin-left: 3px;
+        @include backgroundImg('../img/icons/stars/star.svg');
+    
+        &--half{
+            @include backgroundImg('../img/icons/stars/star-half.svg');
+        }
+        &--empty{
+            @include backgroundImg('../img/icons/stars/star-empty.svg');
+        }  
+    }  
+}
+  
+
+
+
+
+
+
+
+
+// my grid
+// .column-one{
+//     @include make-col(1, 12);
+// }
+
+// .column-two{
+//     @include make-col(2, 12);
+// }
+
+// .column-three{
+//     @include make-col(3, 12);
+// }
+
+// .column-four{
+//     @include make-col(4, 12);
+// }
+
+// .column-five{
+//     @include make-col(5, 12);
+// }
+
+// .column-six{
+//     @include make-col(6, 12);
+// }
+// .column-seven{
+//     @include make-col(7, 12);
+// }
+
+// .column-eight{
+//     @include make-col(8, 12);
+// }
+
+// .column-nine{
+//     @include make-col(9, 12);
+// }
+
+// .column-ten{
+//     @include make-col(10, 12);
+// }
+
+// .column-eleven{
+//     @include make-col(11, 12);
+// }
+
+// .column-twelve{
+//     @include make-col(12, 12);
+// }

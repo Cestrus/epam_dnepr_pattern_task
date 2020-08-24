@@ -1,0 +1,243 @@
+.overlayModal{	
+    position: fixed;
+    width: 100%;
+	height: 100%;
+ 	left: 0;
+	top: 0;   
+    opacity: 0.8;
+	visibility: hidden;
+	background-color: $mainColor;
+	z-index: 200;
+    transition: all 0.3s;
+    
+    &--visible{
+        visibility: visible;
+    }
+}
+
+.modalPostForm{
+    position: absolute;
+    display: grid;
+    grid-template-areas: 
+        'titlePostForm    titlePostForm'
+        'postType         author'
+        'imgLink          postTitle' 
+        '.                date' 
+        'postDescription  postDescription'
+        'postQuote        postQuote'
+        'btnSubmit        btnQuit';
+    grid-template-rows: repeat(4, 50px) 1.4fr 0.6fr 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+	width: 1024px;
+	height: 768px;
+    top: calc(50vh - 384px);
+    left: -1024px;
+    margin: 0 auto;
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    background-color: $mainBackgroundColor;
+    font-family: $baseFontFamily;
+    color: $fontColor; 
+	opacity: 0;
+    visibility: hidden;
+    z-index: 300;
+	transition: 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    transform:translateX(0);
+
+    &--visible{
+        opacity: 1;
+        visibility: visible;
+        transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform:translateX(calc(50vw + 512px));
+    }
+
+    &__title{
+        grid-area: titlePostForm;
+        border-bottom: 1px solid $lineColor;
+        text-align: center;
+        height: 100%;
+        line-height: 50px;
+        
+        p{  
+            font-weight: bold;                       
+        }
+    }
+
+    &__postTypeBox, &__imgLinkBox, &__titlePostBox, &__authorBox, &__dateBox{
+        display: flex;
+        justify-content: flex-end;
+
+        label{
+            line-height: 30px;
+            margin: 10px;
+        }
+        input, select{
+            width: 60%;
+            margin: auto 20px;
+            height: 30px;   
+            padding-left: 10px; 
+            border: 1px solid $mainColor;
+            border-radius: 3px;
+            box-sizing: border-box;        
+        }
+    }
+
+    &__postTypeBox{
+        grid-area: postType;     
+    }
+
+    &__imgLinkBox{
+        grid-area: imgLink;
+    }
+
+    &__titlePostBox{
+        grid-area: postTitle;     
+        position: relative;  
+    }
+    &__authorBox{
+        grid-area: author;
+    }
+
+    &__dateBox{
+        grid-area: date;
+    }
+
+    &__postDescriptionBox{
+        grid-area: postDescription;
+        display: flex;
+        flex-direction: column;
+
+        label{
+            height: 30px;
+            line-height: 30px;
+            margin: 0 10px 10px;
+        }
+
+        textarea{
+            height: 100%;
+            margin: 0px 10px;
+            padding: 5px 10px;   
+            font-size: 14px;
+            border: 1px solid $mainColor;
+            border-radius: 3px;
+            box-sizing: border-box
+        }
+    }
+
+    &__postQuoteBox{
+        grid-area: postQuote;
+        display: flex;
+        flex-direction: column;
+
+        label{
+            height: 30px;
+            line-height: 30px;
+            margin: 0 10px 10px;
+        }
+
+        textarea{
+            height: 100%;
+            margin: 0 10px;
+            padding: 10px;
+            font-size: 14px;  
+            border: 1px solid $mainColor;
+            border-radius: 3px;
+            box-sizing: border-box
+        }
+    }
+
+    &__btnBoxLeft{
+        grid-area: btnSubmit;
+        margin-right: 20px;
+        margin-left: auto;
+        
+    }
+
+    &__btnBoxRight{
+        grid-area: btnQuit;
+        margin-right: auto;
+        margin-left: 20px;
+    }
+}
+
+.btn{
+    &--postForm-submit, &--postForm-quit{
+        @include renderButton(100px, 35px, $buttonDarkColor, $buttonBorderColor, $buttonLightFontColor);
+    }
+}
+
+.tooltip{
+    position: absolute;
+    width: 250px;
+    height: 80px;
+    top: 45px;
+    right: 10px;
+    background-color: $secondaryBackgroundColor;
+    color: $fontColor;
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 2px $mainColor;
+    font-size: 10px;
+    font-family: $baseFontFamily;
+    padding: 5px;
+    visibility: hidden;    
+
+    ul li{
+        list-style-type: none;
+        margin: 5px 0;
+    }
+    
+    &--visible{
+        visibility: visible;
+    }
+}
+
+.alertSign{
+    position: absolute;
+    display: block;
+    top: 15px;
+    right: 25px;
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/icons/caution.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.sendWindow{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 150px;    
+    top: calc(50vh - 50px);
+    left: calc(50vw - 100px);
+    border: 1px solid $mainColor;
+    border-radius: 5px;
+    background-color: $mainBackgroundColor;
+    font-family: $baseFontFamily;
+    color: $fontColor; 
+    z-index: 300;
+    p{
+        height: 50%;
+        align-self: center;
+        margin-top: 20px;
+    }
+}
+
+.btn{
+    &--sendWindow{
+        @include renderButton(100px, 35px, $buttonDarkColor, $buttonBorderColor, $buttonLightFontColor);
+        align-self: center;
+        margin-bottom: 20px;
+    }
+}
+
+.my-spinner{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    z-index: 400;
+}
